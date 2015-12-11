@@ -36,7 +36,8 @@ int Vertex::getVertexPosition()
 	return mVertexPosition;
 }
 
-char Vertex::getVertexColour() {
+char Vertex::getVertexColour() 
+{
 	return mVertexColour;
 }
 
@@ -59,6 +60,13 @@ int Vertex::getNumberOfChildren()
 {
 	return mNumberOfChildren;
 }
+
+std::vector<Edge*> &Vertex::getNeibrghod()
+{
+	return mNneighrobhood;
+}
+
+
 
 void Vertex::setDepthInDFS(int d)
 {
@@ -88,6 +96,24 @@ void Vertex::setParent(Vertex * v)
 void Vertex::setNumberOfChildren(int n)
 {
 	mNumberOfChildren = n;
+}
+
+void Vertex::addNneigbro(Edge * e)
+{
+	mNneighrobhood.push_back(e);
+}
+
+Vertex * Vertex::findBadassParent()
+{
+	if (this->mParent == nullptr)
+		return this;
+	return this->mParent->findBadassParent();
+}
+
+void Vertex::makeUnion(Vertex * v)
+{
+	if (this->findBadassParent() != v->findBadassParent())
+		this->findBadassParent()->setParent(v->findBadassParent());
 }
 
 void Vertex::printVertex()

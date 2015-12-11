@@ -7,8 +7,15 @@ public:
 	Edge(Vertex *v1, Vertex *v2, int w);
 	~Edge();
 
+	Vertex * getV1();
+	Vertex * getV2();
+	int getWeight();
+
+	void printEdge();
+
 private:
-	Vertex *v1, *v2;
+	Vertex *v1;
+	Vertex *v2;
 	int weight;
 };
 

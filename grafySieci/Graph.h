@@ -11,9 +11,11 @@ class Graph
 public:
 	Graph();
 	~Graph();
+
+	void readGraph(char * c);
+
 	
 	
-	/*
 
 	int getNumberOfVertices();
 	int getNumberOfEdges();
@@ -23,12 +25,18 @@ public:
 	bool isConnectedDirectly(Vertex *v1, Vertex *v2);
 
 	void addVertex(Vertex *v);
-	void addEdge(Vertex *v1, Vertex *v2);
-	void addEdge(std::string s1, std::string s2);
+	void addEdge(Vertex *v1, Vertex *v2, int w);
+	void addEdge(std::string s1, std::string s2, int w);
 
 	void printVertices();
 	void printEdges();
+	void printGraph();
 
+	Graph * mstKruskal();
+
+	Graph * mstPrim();
+
+	/*
 	void clearColours();
 	void clearDepths();
 	void clearLowpoints();
@@ -45,7 +53,8 @@ public:
 	Graph createDFSTreeFromGraph(Vertex *v);*/
 
 private:
-	std::vector<Vertex> mVerticesList;
-	std::vector<Edge> mEdgesList;
+	std::vector<Vertex*> mVerticesList;
+	std::vector<Edge*> mEdgesList;
+
 };
 

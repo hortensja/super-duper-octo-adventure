@@ -1,6 +1,10 @@
 #pragma once
 
+class Edge;
+
+
 #include <iostream>
+#include <vector>
 
 class Vertex
 {
@@ -16,7 +20,7 @@ public:
 	int getLowpoint();
 	Vertex * getParent();
 	int getNumberOfChildren();
-
+	std::vector<Edge *> &getNeibrghod();
 
 	void setDepthInDFS(int d);
 	void setVertexPosition(int p);
@@ -24,6 +28,11 @@ public:
 	void setLowpoint(int l);
 	void setParent(Vertex *v);
 	void setNumberOfChildren(int n);
+	
+	void addNneigbro(Edge *e);
+
+	Vertex * findBadassParent();
+	void makeUnion(Vertex *v);
 
 	void printVertex();
 	void printVertexNumber();
@@ -37,6 +46,7 @@ protected:
 	int mLowpoint;
 	Vertex *mParent;
 	int mNumberOfChildren;
+	std::vector<Edge*> mNneighrobhood;
 	//int mParentNumber;
 };
 
